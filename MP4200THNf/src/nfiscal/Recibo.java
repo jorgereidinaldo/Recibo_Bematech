@@ -160,7 +160,7 @@ public class Recibo {
 					
 		}	
 		
-		public static void imprimiReciboPagamentoAvulso(String nomeLoja,String dataPagamento,String usuarioRecebimento,String nomeCliente,String vPago,String numeroRecibo,String vPcla,String vcto,String ju,String mu,String caminhoLogotipo,String chaveSeguranca,String parcela,String cidade){
+		public static void imprimiReciboPagamentoAvulso(String nomeLoja,String dataPagamento,String usuarioRecebimento,String nomeCliente,String vPago,String numeroRecibo,String vPcla,String vcto,String ju,String mu,String caminhoLogotipo,String chaveSeguranca,String parcela,String cidade,String formaPagamento){
 			
 			Properties props_1 = new Properties();
 			try {
@@ -219,6 +219,9 @@ public class Recibo {
 					iRetorno = cupom.FormataTX("CLIENTE:\r", 2, 0, 0, 0, 0);
 					
 					iRetorno = cupom.FormataTX(" "+nomeCliente+"\r\n", 2, 0, 0, 0, 1);
+					iRetorno = cupom.FormataTX("------------------------------------------------\r\n", 2, 0, 0, 0, 0);
+					iRetorno = cupom.FormataTX("FORMA PAGAMENTO: \r", 2, 0, 0, 0, 1);
+					iRetorno = cupom.FormataTX(formaPagamento+" \r\n", 2, 0, 0, 0, 1);
 					iRetorno = cupom.FormataTX("VALOR PAGO:  \r", 2, 0, 0, 0, 1);
 					iRetorno = cupom.FormataTX(vPago+"\r\n", 2, 0, 0, 1, 1);
 					iRetorno = cupom.FormataTX("------------------------------------------------\r\n", 2, 0, 0, 0, 0);
